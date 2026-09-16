@@ -1,0 +1,13 @@
+{
+  "name": "ai-engineering-lab",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "chat": "node experiments/chat/index.js",
+    "generate": "node experiments/generate/index.js",
+    "embeddings": "node experiments/embeddings/index.js"
+  },
+  "dependencies": {
+    "ollama": "^0.6.3"
+  }
+}
