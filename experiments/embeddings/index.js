@@ -1,12 +1,19 @@
 import { embed, chat } from '../../lib/ollama.js';
 
-import fs from "fs";
+import {PDFParse} from 'pdf-parse';
 
 // -----------------------------
 // 1. Load knowledge source
 // -----------------------------
 
-const essay = fs.readFileSync("./experiments/embeddings/essay.txt", "utf8");
+async function convertPDFToText() {
+	const parser = new PDFParse({ url: 'experiments/embeddings/essay.pdf' });
+
+	const result = await parser.getText();
+	return result.text;
+}
+
+const essay = await convertPDFToText();
 
 // -----------------------------
 // 2. Split essay into chunks
@@ -78,7 +85,7 @@ console.log("Knowledge base created");
 // 6. Ask a question
 // -----------------------------
 
-const question = "What can AI systems do?";
+const question = "When the man pressed the sides, what happened to the object?";
 
 const questionEmbedding = await createEmbedding(question);
 
@@ -116,8 +123,6 @@ ${relevantChunk.text}
 Question:
 ${question}
 
-If the answer cannot be found in the knowledge, say:
-"I don't know based on the provided essay."
 `;
 
 const response = await chat(prompt);
