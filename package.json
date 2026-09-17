@@ -8,6 +8,7 @@
     "embeddings": "node experiments/embeddings/index.js"
   },
   "dependencies": {
+    "@qdrant/js-client-rest": "^1.19.0",
     "ollama": "^0.6.3",
     "pdf-parse": "^2.4.5"
   }
