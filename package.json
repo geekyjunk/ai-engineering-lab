@@ -5,10 +5,13 @@
   "scripts": {
     "chat": "node experiments/chat/index.js",
     "generate": "node experiments/generate/index.js",
-    "embeddings": "node experiments/embeddings/index.js"
+    "embeddings": "node experiments/embeddings/index.js",
+    "jev": "node experiments/jev/index.js",
+    "jev:router": "node experiments/jev/router.js"
   },
   "dependencies": {
     "@qdrant/js-client-rest": "^1.19.0",
+    "dotenv": "^18.0.2",
     "ollama": "^0.6.3",
     "pdf-parse": "^2.4.5"
   }
